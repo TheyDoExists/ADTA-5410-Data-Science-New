@@ -1,0 +1,3 @@
+"0","# Run this code chunk without changing it"
+"0","creditdata<-read.csv(""MP2_data_option1.csv"", header = TRUE)"
+"0","creditdata"

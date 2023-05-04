@@ -1,0 +1,5 @@
+"0","# Insert your codes for Task 2A  below"
+"0",""
+"0","model_tree <- rpart(Status ~ ., data = train_data, method = ""class"","
+"0","                    control = rpart.control(cp = 0.001, minbucket = 3, xval = 10))"
+"0","plot(model_tree)"

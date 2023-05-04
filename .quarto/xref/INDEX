@@ -1,0 +1,17 @@
+{
+  "about.qmd": {
+    "about.html": "7e479db9"
+  },
+  "posts/my-first-post/index.qmd": {
+    "index.html": "d2fe3abc"
+  },
+  "posts/my-first-post/Week 3 Assignment_RWi.qmd": {
+    "Week 3 Assignment_RWi.html": "c4d05aa8"
+  },
+  "posts/welcome/index.qmd": {
+    "index.html": "8ea3888a"
+  },
+  "index.qmd": {
+    "index.html": "312bd635"
+  }
+}

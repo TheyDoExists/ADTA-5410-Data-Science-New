@@ -1,0 +1,4 @@
+"0","# Drop rows from creditdata when Income, Assets, or Debt variable takes the value of 99999999."
+"0",""
+"0","creditdata4 <- subset(creditdata3, Income != 99999999 & Assets != 99999999 & Debt != 99999999)"
+"0","creditdata4"

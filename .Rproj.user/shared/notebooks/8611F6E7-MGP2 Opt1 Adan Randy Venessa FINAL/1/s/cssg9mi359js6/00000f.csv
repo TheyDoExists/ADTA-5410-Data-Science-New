@@ -1,0 +1,3 @@
+"0","# Drop rows from creditdata when Job variable takes the value of 0."
+"0","creditdata3 <- subset(creditdata2, Job != 0)"
+"0","creditdata3"

@@ -1,0 +1,129 @@
+"0","# WARNING: Do not modify the codes in here. "
+"0","# Run this code before moving to the next one"
+"0",""
+"0","library(PerformanceAnalytics)"
+"2","Loading required package: xts
+"
+"2","Loading required package: zoo
+"
+"2","
+Attaching package: ‘zoo’
+
+"
+"2","The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
+"
+"2","
+################################### WARNING ###################################
+# We noticed you have dplyr installed. The dplyr lag() function breaks how    #
+# base R's lag() function is supposed to work, which breaks lag(my_xts).      #
+#                                                                             #
+# If you call library(dplyr) later in this session, then calls to lag(my_xts) #
+# that you enter or source() into this session won't work correctly.          #
+#                                                                             #
+# All package code is unaffected because it is protected by the R namespace   #
+# mechanism.                                                                  #
+#                                                                             #
+# Set `options(xts.warn_dplyr_breaks_lag = FALSE)` to suppress this warning.  #
+#                                                                             #
+# You can use stats::lag() to make sure you're not using dplyr::lag(), or you #
+# can add conflictRules('dplyr', exclude = 'lag') to your .Rprofile to stop   #
+# dplyr from breaking base R's lag() function.                                #
+################################### WARNING ###################################
+"
+"2","
+Attaching package: ‘PerformanceAnalytics’
+
+"
+"2","The following object is masked from ‘package:graphics’:
+
+    legend
+
+"
+"0","library(xts)"
+"0","library(lubridate)"
+"2","
+Attaching package: ‘lubridate’
+
+"
+"2","The following objects are masked from ‘package:base’:
+
+    date, intersect, setdiff, union
+
+"
+"0","library(tidyverse)"
+"2","── [1mAttaching core tidyverse packages[22m ──────── tidyverse 2.0.0 ──
+[32m✔[39m [34mdplyr  [39m 1.1.1     [32m✔[39m [34mreadr  [39m 2.1.4
+[32m✔[39m [34mforcats[39m 1.0.0     [32m✔[39m [34mstringr[39m 1.5.0
+[32m✔[39m [34mggplot2[39m 3.4.1     [32m✔[39m [34mtibble [39m 3.2.1
+[32m✔[39m [34mpurrr  [39m 1.0.1     [32m✔[39m [34mtidyr  [39m 1.3.0"
+"2","── [1mConflicts[22m ────────────────────────── tidyverse_conflicts() ──
+[31m✖[39m [34mdplyr[39m::[32mfilter()[39m masks [34mstats[39m::filter()
+[31m✖[39m [34mdplyr[39m::[32mfirst()[39m  masks [34mxts[39m::first()
+[31m✖[39m [34mdplyr[39m::[32mlag()[39m    masks [34mstats[39m::lag()
+[31m✖[39m [34mdplyr[39m::[32mlast()[39m   masks [34mxts[39m::last()
+[36mℹ[39m Use the ]8;;http://conflicted.r-lib.org/conflicted package]8;; to force all conflicts to become errors"
+"0","library(dplyr)"
+"0","library(caret)"
+"2","Loading required package: lattice
+"
+"2","Registered S3 method overwritten by 'data.table':
+  method           from
+  print.data.table     
+"
+"2","
+Attaching package: ‘caret’
+
+"
+"2","The following object is masked from ‘package:purrr’:
+
+    lift
+
+"
+"0","library(e1071)"
+"2","
+Attaching package: ‘e1071’
+
+"
+"2","The following objects are masked from ‘package:PerformanceAnalytics’:
+
+    kurtosis, skewness
+
+"
+"0","library(class)"
+"0","library(ggplot2)"
+"0","library(Metrics)"
+"2","
+Attaching package: ‘Metrics’
+
+"
+"2","The following objects are masked from ‘package:caret’:
+
+    precision, recall
+
+"
+"0","my_factors <- read.csv(""Data_RLab3.csv"") # call the data"
+"0","my_factors$Date <- mdy(my_factors$Date) # declare the date variable"
+"0","my_factors_sorted<- my_factors[order(my_factors$Date),] # sort by date"
+"0","All_data <- xts(my_factors_sorted[,-1],order.by = my_factors_sorted[,1],)"
+"0","All_data$Y<-All_data$Brk_ret-All_data$RF  # target variable"
+"0",""
+"0","Full_data<-as.data.frame(All_data) # convert to data frame"
+"0","Fulldata = subset(Full_data, select = -c(RF,Brk_ret,Brk_exret,Subperiod, Mkt))# drop redundant ones"
+"0","Fulldata<-Fulldata%>%"
+"0","    rename(MRP=Mkt_rf, MOM=Mom)"
+"0",""
+"0","first400<-Fulldata[1:400,]  # use the first 400 as training and validation set"
+"0","testset<-Fulldata[401:500,]  # last 100 for the test set"
+"0",""
+"0","set.seed(5410)   # use this seed"
+"0","# shuffle the index for the testing data"
+"0","shuffle<-sample(nrow(first400), 0.25*nrow(first400))"
+"0"," # Get the training data in training set"
+"0","trainingset<-first400[-shuffle,]"
+"0","# Get the validation set in trainingf  data"
+"0","validationset<-first400[shuffle,]"
+"0",""
+"0",""

@@ -1,0 +1,5 @@
+"0","# performs a backward stepwise regression using the BIC criterion. It starts with the full model (maxM) and removes one predictor at a time, checking if the model fit improves according to the BIC criterion."
+"0",""
+"0","#Model_backward <-stats::step(maxM,direction=""backward"", scope=formula(maxM),criterion =""BIC"")"
+"0",""
+"0","#summary(Model_backward)"

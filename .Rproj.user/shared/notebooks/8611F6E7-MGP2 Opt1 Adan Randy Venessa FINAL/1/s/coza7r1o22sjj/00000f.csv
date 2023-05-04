@@ -1,0 +1,8 @@
+"0","# Declare the following variables as factor: Status, Home, Marital, Records, and Job"
+"0",""
+"0","creditdata4$Status <- factor(creditdata4$Status)"
+"0","creditdata4$Home <- factor(creditdata4$Home)"
+"0","creditdata4$Marital <- factor(creditdata4$Marital)"
+"0","creditdata4$Records <- factor(creditdata4$Records)"
+"0","creditdata4$Job <- factor(creditdata4$Job)"
+"0",""

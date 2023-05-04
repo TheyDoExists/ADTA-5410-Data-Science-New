@@ -1,0 +1,4 @@
+"0","#Here is the code you can use to extract the variable importance measures from the model_tree object:"
+"0",""
+"0","var_importance <- varImp(model_tree, scale = FALSE)"
+"0","var_importance"

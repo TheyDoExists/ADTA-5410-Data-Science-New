@@ -1,0 +1,8 @@
+"0","# Insert your codes for Task 1B  below"
+"0","set.seed(5410) "
+"0",""
+"0","index <- createDataPartition(creditdata4$Status, p = 0.75, list = FALSE)"
+"0","train_data <- creditdata4[index, ]"
+"0","test_data <- creditdata4[-index, ]"
+"0",""
+"0","train_data"

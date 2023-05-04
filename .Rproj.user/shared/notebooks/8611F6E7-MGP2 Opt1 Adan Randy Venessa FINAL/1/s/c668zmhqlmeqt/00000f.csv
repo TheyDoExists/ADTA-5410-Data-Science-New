@@ -1,0 +1,4 @@
+"0","# Insert your codes for Task 1A  below"
+"0","# Drop rows from creditdata when Status variable takes the value of 0."
+"0","creditdata1 <- subset(creditdata, Status != 0) "
+"0","creditdata1 "
